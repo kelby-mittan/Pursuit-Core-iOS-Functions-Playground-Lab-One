@@ -52,6 +52,9 @@ for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
 
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
+func smallestValue(inArr: [Double]) -> Double {
+    return inArr.min() ?? 1000
+}
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -60,10 +63,10 @@ let testCasesThree: [([Double], Double)] = [
     (input: [-4,-59,-348,-34,-4], expectedOutput: -348),
 ]
 
-//for (input, expectedOutput) in testCasesThree {
-//    let output = smallestValue(in: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesThree {
+    let output = smallestValue(inArr: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Four
