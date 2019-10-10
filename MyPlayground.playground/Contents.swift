@@ -53,7 +53,14 @@ for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
 func smallestValue(inArr: [Double]) -> Double {
-    return inArr.min() ?? 1000
+    var smallNum = inArr[0]
+    for num in 0..<inArr.count  {
+        if inArr[num] < smallNum {
+            smallNum = inArr[num]
+        }
+    }
+    return smallNum
+    //    return inArr.min() ?? 1000
 }
 
 let testCasesThree: [([Double], Double)] = [
@@ -73,7 +80,15 @@ for (input, expectedOutput) in testCasesThree {
 
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
-// Your function here
+func occurrances(of: Character, inString: String) -> Int {
+    var charCount = 0
+    for char in inString {
+        if char == of {
+            charCount += 1
+        }
+    }
+    return charCount
+}
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
@@ -82,10 +97,10 @@ let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "E", inputTwo: "cApItAlS aRe DiFfErEnT", expectedOutput: 2),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = occurrances(of: inputOne, in: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = occurrances(of: inputOne, inString: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 
 // Question Five
